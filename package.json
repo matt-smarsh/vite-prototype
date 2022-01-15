@@ -1,0 +1,21 @@
+{
+  "name": "vite-project",
+  "version": "0.0.0",
+  "repository": {},
+  "license": "ISC",
+  "scripts": {
+    "start": "vite --port 8080",
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "vue": "2.6.14"
+  },
+  "devDependencies": {
+    "@vue/runtime-dom": "3.2.26",
+    "typescript": "4.5.4",
+    "vite": "2.7.12",
+    "vite-plugin-vue2": "1.9.2",
+    "vue-template-compiler": "2.6.14",
+    "vue-tsc": "0.30.2"
+  }
+}
