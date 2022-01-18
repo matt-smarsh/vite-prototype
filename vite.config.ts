@@ -13,6 +13,13 @@ export default defineConfig({
 		// minify: false,
 		rollupOptions: { output: { extend: true } },
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `@import "@/scss/__auto-import.scss";`,
+			},
+		},
+	},
 	plugins: [vue()],
 	resolve: {
 		alias: {
