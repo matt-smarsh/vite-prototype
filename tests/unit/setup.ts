@@ -1,9 +1,10 @@
 /// <reference types="vitest/globals" />
+import { enableAutoDestroy, resetAutoDestroyState } from "@vue/test-utils"
 
 beforeAll(function setupBeforeAll() {
-	// TODO: enableAutoDestroy
+	enableAutoDestroy(afterEach)
 })
 
 afterAll(function setupAfterAll() {
-	// TODO: resetAutoDestroyState
+	resetAutoDestroyState()
 })

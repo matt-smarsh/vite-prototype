@@ -1,7 +1,5 @@
-import { enableAutoDestroy, shallowMount } from "@vue/test-utils"
+import { shallowMount } from "@vue/test-utils"
 import Component from "./HelloWorld.vue"
-
-enableAutoDestroy(afterEach)
 
 it("mounts", async () => {
 	const msg = Symbol("msg").toString()
