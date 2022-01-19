@@ -7,11 +7,10 @@ export default Vue.extend({
 })
 </script>
 
-<template>
-	<div id="app">
-		<img alt="Vue logo" src="./assets/logo.png" />
-		<HelloWorld msg="Hello Vue 2 + TypeScript + Vite" />
-	</div>
+<template lang="pug">
+#app
+	img(alt="Vue logo" src="./assets/logo.png")
+	HelloWorld(msg="Hello Vue 2 + TypeScript + Vite")
 </template>
 
 <style lang="scss">
