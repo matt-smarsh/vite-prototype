@@ -8,14 +8,15 @@ export default Vue.extend({
 </script>
 
 <template lang="pug">
-#app
-	img(alt="Vue logo" src="./assets/logo.png")
-	HelloWorld(msg="Hello Vue 2 + TypeScript + Vite")
+v-app#app
+	v-main
+		v-container
+			img(alt="Vue logo" src="./assets/logo.png")
+			HelloWorld(msg="Hello Vue 2 + TypeScript + Vite")
 </template>
 
 <style lang="scss">
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;

@@ -1,22 +1,25 @@
 import { shallowMount } from "@vue/test-utils"
 import Component from "./HelloWorld.vue"
 
-it("mounts", async () => {
-	const msg = Symbol("msg").toString()
-	const wrapper = shallowMount(Component, {
-		propsData: { msg }
+const createWrapper = (props: object = {}) =>
+	shallowMount<any>(Component, {
+		propsData: { ...props },
+		stubs: { "v-btn": true },
 	})
 
-	expect(wrapper.find("h1").text()).toBe(msg)
+it("mounts", async () => {
+	const msg = Symbol("msg").toString()
+	const wrapper = createWrapper({ msg })
+	expect(wrapper.get("h1").text()).toBe(msg)
 })
 
 it("updates count", async () => {
-	const wrapper = shallowMount(Component)
-	const button = wrapper.find("button")
+	const wrapper = createWrapper()
+	const button = wrapper.get("v-btn-stub")
 
-	expect(button.text()).toBe(`count is: 0`)
+	expect(button.text()).toBe("count is: 0")
 
-	await button.trigger("click")
+	await button.vm.$emit("click")
 
-	expect(button.text()).toBe(`count is: 1`)
+	expect(button.text()).toBe("count is: 1")
 })
