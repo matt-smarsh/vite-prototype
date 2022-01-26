@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 import { fileURLToPath, URL } from "url"
 import { defineConfig } from "vite"
+import inspect from "vite-plugin-inspect"
 import { createVuePlugin as vue } from "vite-plugin-vue2"
 import { skipDocsBlocks } from "./build/skip-docs-blocks"
 
@@ -25,7 +26,11 @@ export default defineConfig({
 			},
 		},
 	},
-	plugins: [vue(), skipDocsBlocks()],
+	plugins: [
+		vue(),
+		skipDocsBlocks(),
+		inspect(),
+	],
 	resolve: {
 		alias: {
 			"@": fileURLToPath(new URL("./src", import.meta.url)),
