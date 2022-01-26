@@ -1,9 +1,20 @@
+<docs>
+# Main application component
+</docs>
+
 <script lang="ts">
 import Vue from "vue"
-import HelloWorld from "@/components/HelloWorld.vue"
 
 export default Vue.extend({
-	components: { HelloWorld },
+	components: { HelloWorld: () => import("@/components/HelloWorld.vue") },
+	methods: {
+		coveredFn() {
+			console.log("this function is covered")
+		},
+		uncoveredFn() {
+			console.log("this function is uncovered")
+		},
+	},
 })
 </script>
 

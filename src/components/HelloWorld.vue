@@ -8,6 +8,10 @@ export default Vue.extend({
 	data: () => ({
 		count: 0,
 	}),
+	mounted() {
+		const anchors = this.$el.getElementsByTagName("a")
+		for (const a of Array.from(anchors)) a.target = "_blank"
+	},
 	methods: {
 		increment() {
 			this.count++
@@ -19,25 +23,19 @@ export default Vue.extend({
 <template lang="pug">
 div
 	h1 {{ msg }}
-	p
-		| Recommended IDE setup:
-		| <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-		| +
-		| <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
+	p.
+		Recommended IDE setup:
+		#[a(href="https://code.visualstudio.com/") VSCode] +
+		#[a(href="https://github.com/johnsoncodehk/volar") Volar]
 	p See <code>README.md</code> for more information.
-	p
-		| <a href="https://vitejs.dev/guide/features.html" target="_blank">
-		|	Vite Docs
-		| </a>
-		| |
-		| <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
+	p.
+		#[a(href="https://vitejs.dev/guide/features.html") Vite Docs] |
+		#[a(href="https://v3.vuejs.org/") Vue 3 Docs]
 
-	button(type="button" @click="increment")
-		| count is: {{ count }}
-	p
-		| Edit
-		| <code>components/HelloWorld.vue</code> to test hot module
-		| replacement.
+	v-btn(color="primary" type="button" @click="increment").
+		count is: {{ count }}
+	p.
+		Edit #[code components/HelloWorld.vue] to test hot module replacement.
 </template>
 
 <style scoped>
